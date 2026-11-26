@@ -16,7 +16,7 @@ jobs:
     name: Lint & tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
@@ -31,7 +31,7 @@ jobs:
     name: SAST (Bandit)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
@@ -43,7 +43,7 @@ jobs:
     name: SCA (pip-audit)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
@@ -55,7 +55,7 @@ jobs:
     name: Secret scanning (Gitleaks)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0   # tout l'historique, pas seulement le dernier commit
       - uses: gitleaks/gitleaks-action@v2
@@ -67,7 +67,7 @@ jobs:
     name: Dockerfile lint (Hadolint)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: Dockerfile
@@ -82,7 +82,7 @@ jobs:
       contents: read
       packages: write   # nécessaire uniquement pour pousser sur GHCR
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Les noms d'image Docker doivent être en minuscules (le propriétaire "Aj3036max" contient des majuscules)
       - name: Nom de l'image
