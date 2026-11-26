@@ -98,7 +98,7 @@ jobs:
           docker rm -f api
 
       - name: Scan de vulnérabilités (Grype)
-        uses: anchore/scan-action@v6
+        uses: anchore/scan-action@v7
         with:
           image: ${{ env.IMAGE }}:${{ github.sha }}
           fail-build: true
